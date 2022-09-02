@@ -43,8 +43,8 @@
   const settings = {
     amountWidget: {
       defaultValue: 1,
-      defaultMin: 1,
-      defaultMax: 9,
+      defaultMin: 0,
+      defaultMax: 10,
     }
   };
 
@@ -178,6 +178,8 @@
           }
         }
       }
+      /*multiply price by amount*/
+      price *= thisProduct.amountWidget.value;
 
       // update calculated price in the HTML
       thisProduct.priceElem.innerHTML = price;
@@ -187,6 +189,7 @@
 
       thisProduct.amountWidget = new AmoundWidget (thisProduct.amountWidgetElem);
       console.log('to przekacujemy', thisProduct.amountWidgetElem);
+      thisProduct.amountWidgetElem.addEventListener('update', function(){thisProduct.processOrder();});
     }
 
   }
@@ -206,6 +209,7 @@
       const thisWidget = this;
 
       thisWidget.element = element;
+      thisWidget.value = settings.amountWidget.defaultValue;
       thisWidget.input = thisWidget.element.querySelector(select.widgets.amount.input);
       thisWidget.linkDecrease = thisWidget.element.querySelector(select.widgets.amount.linkDecrease);
       thisWidget.linkIncrease = thisWidget.element.querySelector(select.widgets.amount.linkIncrease);
@@ -220,8 +224,9 @@
       thisWidget.value !== newValue && !isNaN(newValue) &&
       newValue >= settings.amountWidget.defaultMin &&
       newValue <= settings.amountWidget.defaultMax ? thisWidget.value = newValue : false;
-
       thisWidget.input.value = thisWidget.value;
+      thisWidget.announce();
+
     }
     initActions(){
       const thisWidget = this;
@@ -237,7 +242,12 @@
         event.preventDefault();
         thisWidget.setValue(++thisWidget.input.value);
       });
+    }
+    announce(){
+      const thisWidget = this;
 
+      const event = new Event('update');
+      thisWidget.element.dispatchEvent(event);
     }
   }
 
