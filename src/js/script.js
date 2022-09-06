@@ -373,25 +373,23 @@
       thisCart.dom = {};
 
       thisCart.dom.wrapper = element;
+      console.log(element);
       thisCart.dom.toggleTrigger = thisCart.dom.wrapper.querySelector(select.cart.toggleTrigger);
       thisCart.dom.productList = thisCart.dom.wrapper.querySelector(select.cart.productList);
+      console.log(thisCart.dom.productList);
     }
     initActions (){
       const thisCart = this;
 
       console.log(thisCart.dom);
 
-
       thisCart.dom.toggleTrigger.addEventListener('click', function(event){
         event.preventDefault();
-
         thisCart.dom.wrapper.classList.toggle('active');
       });
     }
     add(menuProduct){
       const thisCart = this;
-      console.log(thisCart);
-      console.log('adding product', menuProduct);
 
       /* generate HTML based on template */
       const generateHTML = templates.cartProduct(menuProduct);
@@ -402,12 +400,11 @@
       console.log(thisCart.element);
 
       /* find menu container */
-      const cartContainer = document.querySelector(select.containerOf.cart);
+      const cartContainer = thisCart.dom.productList;
+      console.log(cartContainer);
 
       /* add DOM element to menu container */
       cartContainer.appendChild(thisCart.element);
-
-
     }
 
   }
