@@ -422,6 +422,11 @@
       let totalNumber = 0;
       let subtotalPrice = 0;
 
+      //delete delivery fee if cart is empty
+      if (thisCart.products.length === 0){
+        thisCart.deliveryFee = 0;
+      }
+
       // change variables for every product in basket
       for (let product of thisCart.products){
         const amount = product.amount;
@@ -452,10 +457,13 @@
       //delete informations from thisCart.products
       const indexOfProduct = thisCart.products.indexOf(product);
       thisCart.products.splice(indexOfProduct,1);
-      console.log('after removed',thisCart.products);
+      console.log('after removed',thisCart);
+      thisCart.update();
 
       //update basket
+
       thisCart.update();
+      console.log('after updating', thisCart);
 
     }
 
