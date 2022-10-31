@@ -173,6 +173,10 @@
       }
 
     }
+
+    &.choosen {
+      background: $color-success ;
+    }
   }
 
   [data-table="1"] {
