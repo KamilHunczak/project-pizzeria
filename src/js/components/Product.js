@@ -1,6 +1,6 @@
 import {select, templates, classNames} from '../settings.js';
 import utils from '../utils.js';
-import AmoundWidget from './AmountWidget.js';
+import AmoundWidget from './AmoundWidget.js';
 
 class Product{
   constructor(id, data){

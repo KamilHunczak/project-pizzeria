@@ -1,5 +1,5 @@
 import {select} from '../settings.js';
-import AmoundWidget from './AmountWidget.js';
+import AmoundWidget from './AmoundWidget.js';
 
 class CartProduct {
   constructor(menuProduct, element){

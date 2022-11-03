@@ -1,5 +1,5 @@
 import { templates, select, settings, classNames} from '../settings.js';
-import AmoundWidget from './AmountWidget.js';
+import AmoundWidget from './AmoundWidget.js';
 import HourPicker from './HourPicker.js';
 import DatePicker from './DatePicker.js';
 import utils from '../utils.js';
