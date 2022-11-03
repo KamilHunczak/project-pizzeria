@@ -5,8 +5,7 @@ class HomePage{
     const thisHomePage = this;
 
     thisHomePage.render(element);
-
-    console.log('this home page', thisHomePage);
+    thisHomePage.initCarousel();
   }
   render(element){
     const thisHomePage = this;
@@ -15,9 +14,23 @@ class HomePage{
     thisHomePage.dom.wrapper = element;
 
     const generateHTML = templates.homePage();
-    console.log(generateHTML);
     thisHomePage.dom.wrapper.innerHTML = generateHTML;
+
+
   }
+  initCarousel(){
+    const elem = document.querySelector('.main-carousel');
+    console.log(elem);
+    const flkty = new Flickity( elem, {
+    // options
+      cellAlign: 'left',
+      contain: true
+
+    });
+    console.log(flkty);
+
+  }
+
 }
 
 

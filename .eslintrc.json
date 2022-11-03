@@ -31,7 +31,8 @@
         "scss/at-extend-no-missing-placeholder": null
     },
     "globals": {
-    "Handlebars": false
+    "Handlebars": false,
+    "Flickity": false
     }
 }
 
