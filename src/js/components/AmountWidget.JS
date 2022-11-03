@@ -48,4 +48,5 @@ class AmoundWidget extends BaseWidget {
     });
   }
 }
+
 export default AmoundWidget;
