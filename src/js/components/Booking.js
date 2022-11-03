@@ -112,11 +112,6 @@ class Booking{
         thisBooking.parseData(bookings, eventsCurrent, eventsRepeat);
 
       });
-
-
-
-    console.log('urls', urls);
-    console.log(thisBooking);
   }
   parseData(bookings, eventsCurrent, eventsRepeat){
     const thisBooking = this;

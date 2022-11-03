@@ -8,7 +8,6 @@ class Cart{
 
     thisCart.products = [];
     thisCart.getElements(element);
-    console.log('New Cart', thisCart);
     thisCart.initActions();
   }
   getElements(element){
@@ -24,7 +23,6 @@ class Cart{
     thisCart.dom.totalNumber = thisCart.dom.wrapper.querySelector(select.cart.totalNumber);
     thisCart.dom.form = thisCart.dom.wrapper.querySelector(select.cart.form);
     thisCart.dom.adress = thisCart.dom.wrapper.querySelector(select.cart.address);
-    console.log(thisCart.dom.adress);
     thisCart.dom.phone = thisCart.dom.wrapper.querySelector(select.cart.phone);
   }
   initActions (){

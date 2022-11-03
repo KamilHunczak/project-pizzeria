@@ -2,13 +2,22 @@ import { settings, select, classNames } from './settings.js';
 import Product from './components/Product.js';
 import Cart  from './components/Cart.js';
 import Booking from './components/Booking.js';
+import HomePage from './components/HomePage.js';
+
 
 const app = {
+  initHomePage: function(){
+    const thisApp = this;
+
+    const homePageElem = document.querySelector(select.containerOf.homePage);
+    thisApp.homePage = new HomePage(homePageElem);
+  },
   initPages: function(){
     const thisApp = this;
 
     thisApp.pages = document.querySelector(select.containerOf.pages).children;
     thisApp.navLinks = document.querySelectorAll(select.nav.links);
+    console.log('thisApp', thisApp.navLinks);
 
     const idFromHash = window.location.hash.replace('#/','');
 
@@ -76,11 +85,9 @@ const app = {
         return rawResponse.json();
       })
       .then(function(parsedResponse){
-        console.log('parsedResponse', parsedResponse);
         thisApp.data.products = parsedResponse;
         thisApp.initMenu();
       });
-    console.log('dane',thisApp.data, JSON.stringify(thisApp.data));
   },
   initCart: function(){
     const thisApp = this;
@@ -100,10 +107,13 @@ const app = {
     // console.log('settings:', settings);
     thisApp.initData();
     thisApp.initCart();
+    thisApp.initHomePage();
     thisApp.initPages();
     thisApp.initBooking();
+
   },
 };
+
 
 app.init();
 
