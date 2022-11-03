@@ -22,7 +22,6 @@ class HomePage{
     const elem = document.querySelector('.main-carousel');
     console.log(elem);
     const flkty = new Flickity( elem, {
-    // options
       cellAlign: 'left',
       contain: true
 
